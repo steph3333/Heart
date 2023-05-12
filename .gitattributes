@@ -1,2 +1,55 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Сърце</title>
+	<style>
+		.heart {
+			position: relative;
+			width: 100px;
+			height: 90px;
+			background-color: purple;
+		}
+		.heart:before,
+		.heart:after {
+			position: absolute;
+			content: "";
+			left: 50px;
+			top: 0;
+			width: 50px;
+			height: 80px;
+			background: inherit;
+			border-radius: 50px 50px 0 0;
+			transform: rotate(-45deg);
+			transform-origin: 0 100%;
+		}
+		.heart:after {
+			left: 0;
+			transform: rotate(45deg);
+			transform-origin: 100% 100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="heart"></div>
+
+	<script>
+		// Get the heart element
+		const heart = document.querySelector(".heart");
+
+		// Change the background color every second
+		setInterval(() => {
+			heart.style.backgroundColor = getRandomColor();
+		}, 1000);
+
+		// Function to get a random hex color
+		function getRandomColor() {
+			const hexChars = "0123456789ABCDEF";
+			let color = "#";
+			for (let i = 0; i < 6; i++) {
+				color += hexChars[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+	</script>
+</body>
+</html>
